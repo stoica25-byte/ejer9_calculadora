@@ -24,7 +24,7 @@ jobs:
              javac -d out src/*.java
         
          - name : ejecutar test 
-           run : java -ea -cp out CalculadoraTest
+           run : java -ea -cp out Calculadora_test
 
          - name : crear jar 
            run : java cfe out/Calculadora.jar Main -C out .
