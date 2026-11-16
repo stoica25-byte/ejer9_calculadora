@@ -27,7 +27,7 @@ jobs:
            run : java -ea -cp out Calculadora_test
 
          - name : crear jar 
-           run : java cfe out/Calculadora.jar Main -C out .
+           run : jar cfe out/Calculadora.jar Main -C out .
          
          - name : Ejecutar Calculadora.jar
            run : java -jar out/calculadora.jar
