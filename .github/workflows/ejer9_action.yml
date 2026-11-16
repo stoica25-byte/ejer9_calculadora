@@ -1,0 +1,47 @@
+name: calculadora action
+
+on:
+  push:
+
+jobs:
+    calculadora:
+        runs-on : ubuntu-latest
+        steps :
+
+         - name : Descargar repo
+           uses : actions/checkout@v5 
+
+
+         - name : config java
+           uses: actions/setup-java@v5
+           with:
+            java-version : '21'
+            distribution : temurin
+         
+         - name : crear carpeta out
+           run : |
+             mkdir -p out 
+             javac -d out src/*.java
+        
+         - name : ejecutar test 
+           run : java -ea -cp out CalculadoraTest
+
+         - name : crear jar 
+           run : java cfe out/Calculadora.jar Main -C out .
+         
+         - name : Ejecutar Calculadora.jar
+           run : java -jar out/calculadora.jar
+
+         - name : subir artefacto
+           uses : actions/upload-artifact@v5
+           with : 
+             name : calculadora
+                
+
+                
+
+                
+              
+
+
+    
