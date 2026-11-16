@@ -30,12 +30,13 @@ jobs:
            run : jar cfe out/Calculadora.jar Main -C out .
          
          - name : Ejecutar Calculadora.jar
-           run : java -jar out/calculadora.jar
+           run : java -jar out/Calculadora.jar
 
          - name : subir artefacto
            uses : actions/upload-artifact@v5
            with : 
              name : calculadora
+             path : out/Calculadora.jar
                 
 
                 
